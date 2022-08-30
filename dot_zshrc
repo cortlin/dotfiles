@@ -124,12 +124,22 @@ if command -v chezmoi &>/dev/null; then
 fi
 
 # Init node version manager if exists
-if [[ -e /usr/share/nvm/init-nvm.sh ]]; then 
+if [[ -e /usr/share/nvm/init-nvm.sh ]]; then
   source '/usr/share/nvm/init-nvm.sh'
 fi
 
 if command -v gh &>/dev/null; then
   source <(gh completion -s zsh)
+fi
+
+# Bind git user info
+## Work account
+if [[ $(id -un) -eq "carltonperkins" ]]; then
+  git config --global user.name 'Carlton Perkins'
+  git config --global user.email 'carltonperkins@fb.com'
+else
+  git config --global user.name 'Carlton Perkins'
+  git config --global user.email 'carltonrp52@gmail.com'
 fi
 
 # Compilation flags
