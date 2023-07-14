@@ -1,13 +1,15 @@
 #!/bin/sh
 set -e
 
-GITHUB_USERNAME="Carlton-Perkins"
+GITHUB_USERNAME="cortlin"
 
 echo "[INSTALL] Ohmyzsh"
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
-echo "[INSTALL] Powerlevel10k"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+echo "[INSTALL] GruvBox"
+
+curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/gruvbox.zsh-theme
+
 
 echo "[INSTALL] Chezmoi"
 export BINDIR=$HOME/.local/bin
