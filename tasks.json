@@ -1,0 +1,114 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Skynet service",
+            "type": "shell",
+            "command": "buck2 run --flagfile fbsource//fbcode/mode/opt fbcode//nettools/skynet/cpp/server:server -- --db_tier=${input:dbtier} --db_name=${input:dbname}",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start CRUD service",
+            "type": "shell",
+            "command": "FBNET_DB_TIER=${input:CRUD_dbtier} buck2 run --flagfile fbsource//fbcode/mode/opt fbcode//nettools/fbnet/crud_api:crud_api -- --level INFO",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Gaudi service",
+            "type": "shell",
+            "command": "buck2 run -j5 --flagfile fbsource//fbcode/mode/opt fbcode//ame/gaudi_service:gaudi_server -- --crud_tier=sandbox --port 5599",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Gaudi service with debugger (dev)",
+            "type": "shell",
+            "command": "fdb buck2 run -j5 --flagfile fbsource//fbcode/mode/dev fbcode//ame/gaudi_service:gaudi_server -- --crud_tier=sandbox --port 5599",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Gaudi V2 Service",
+            "type": "shell",
+            "command": "buck run fbcode//ame/gaudi_service:gaudi_server_v2 -- --service.port=5599 -d --crud-tier ${input:crud_tier}",
+            "problemMatcher": []
+        },
+        {
+            "label": "(Re)Start Services (dev)",
+            "type": "shell",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "Start Skynet service",
+                "Start CRUD service",
+                "Start Gaudi service"
+            ],
+            "runOptions": {
+                "instanceLimit": 1
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build local bento kernal",
+            "type": "shell",
+            "command": "bento kernel build bento_kernels/gaudi_dev:",
+            "problemMatcher": []
+        },
+        {
+            "label": "Register SMC Tier",
+            "type": "shell",
+            "command": "gaudi dev init_smc --force",
+            "problemMatcher": []
+        },
+        {
+            "label": "generate gaudi model change",
+            "type": "shell",
+            "command": "generate_model_update -a gaudi -m ${input:model} --update-sandbox",
+            "problemMatcher": []
+        },
+        {
+            "label": "Resync local db for new OD",
+            "type": "shell",
+            "command": "fbnet_sandbox reload --sb-name cortlins --db-tier ${input:dbtier}  --db-name ${input:dbname} --db-role scriptrw --apps-to-sync gaudi,ame --parallel-write-count-overwrite 4",
+            "options": {
+                "cwd": "/data/sandcastle/boxes/fbsource/fbcode/"
+            },
+            "dependsOn": [
+            ],
+            "problemMatcher": []
+        },
+
+    ],
+    "inputs": [
+        {
+            "id": "dbname",
+            "description": "DB name (underscores)",
+            "type": "promptString",
+            "default": "fbnet_dev"
+        },
+        {
+            "id": "dbtier",
+            "description": "DB tier (periods)",
+            "type": "promptString",
+            "default": "xdb.fbnet_dev"
+        },
+        {
+            "id": "CRUD_dbtier",
+            "description": "DB tier for curd services (periods)",
+            "type": "promptString",
+            "default": "xdb.fbnet_dev"
+        },
+        {
+            "id": "model",
+            "description": "gaudi model to update",
+            "type": "promptString",
+            "default": "StrategicSupplyPOR"
+        },
+        {
+            "id": "crud_tier",
+            "description": "crud tier for gaudi service",
+            "type": "promptString",
+            "default": "sandbox"
+        }
+
+    ]
+}
