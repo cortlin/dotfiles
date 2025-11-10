@@ -1,0 +1,139 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[starlark]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[java]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[kotlin]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[objective-c]": {
+        "editor.defaultFormatter": "nuclide.cpp",
+        "editor.formatOnSave": true
+    },
+    "[objective-cpp]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[proto]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[hack]": {
+        "editor.defaultFormatter": "nuclide.hack"
+    },
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "[c]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "[cuda-cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "[tcc-cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "[rust]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "meta.global.history.enabled": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "[ocaml]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "editor.inlineSuggest.allowSuggestOnTriggerCharacters": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.lightbulb.enabled": "on",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.systemd.shouldUse": true,
+    "window.restoreWindows": "none",
+    "extensions.experimental.deferredStartupFinishedActivation": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.5,
+    "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+    "background.enabled": false,
+    "background.fullscreen": {
+        "images": [
+            "https://images3.alphacoders.com/132/1322308.jpeg",
+            "https://w.wallhaven.cc/full/1p/wallhaven-1pqq1w.jpg",
+            "https://w.wallhaven.cc/full/1p/wallhaven-1pqwrg.png",
+            "https://w.wallhaven.cc/full/85/wallhaven-858lz1.png",
+        ], // urls of your images
+        "opacity": 0.93, // 0.85 ~ 0.95 recommended
+        "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
+        "position": "center", // alias to `background-position`, default `center`
+        "interval": 600 // seconds of interval for carousel, default `0` to disabled.
+    },
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup",
+    "workbench.startupEditor": "none",
+    "fb.ms-remote-connections.odtypes": [
+        {
+            "type": "ondemand_fbcode",
+            "flavor": "default",
+            "folders": []
+        },
+        {
+            "type": "ondemand_www",
+            "flavor": "default",
+            "folders": []
+        },
+        {
+            "type": "ondemand_configerator",
+            "flavor": "default",
+            "folders": []
+        },
+        {
+            "type": "ondemand_asic",
+            "flavor": "default",
+            "folders": []
+        },
+        {
+            "type": "ondemand_www_fbsource_configerator",
+            "flavor": "default",
+            "folders": []
+        },
+        {
+            "type": "ondemand_bento",
+            "flavor": "default",
+            "folders": []
+        }
+    ],
+    "wasabi.interactiveDevelopment.introMessageNumTimesShown": 9,
+    "notebook.formatOnSave.enabled": true,
+    "wasabi.interactiveDevelopment.disableIntroMessage": true,
+    "[swift]": {
+        "editor.defaultFormatter": "nuclide.arclint",
+        "editor.formatOnSave": true
+    },
+    "[blueprint]": {
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "[go]": {
+        "editor.defaultFormatter": "nuclide.go"
+    },
+    "[starlark-skycastle]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "nuclide.arclint"
+    },
+    "devmate.clickableSparkleDecorator": false,
+    "accessibility.openChatEditedFiles": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+
+
+}
